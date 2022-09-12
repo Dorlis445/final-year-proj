@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Prediction</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    width:100%;
+    background: linear-gradient(to top,(red)50%,white 50%);
+    background-position: center;
+    background-size: cover;
+    height: 115vh;
+
+}
+.navbar{
+    width: 2000px;
+    height: 75px;
+    margin: auto;
+    background-color: orange;
+}
+.icon{
+    width:200px;
+    float: left;
+    height: 70px;
+} 
+.logo{
+    color: orangered;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    padding-left:20px ;
+    float: left;
+
+}
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+
+} 
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ul li{
+    list-style: none ;
+    margin-left: 150px;
+    margin-top:25px ;
+    font-size: 15px;
+}
+ul li a{
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    transition: 0.4s ease-in-out ;
+}
+ul li a:hover{
+    color:blue;
+}
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: black;
+    position: relative;
+
+}
+.content .par{
+    padding-left: 20px;
+    padding-bottom:25px ;
+    margin-top:80px ;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 1200;
+    letter-spacing: 1.2px;
+    line-height: 40px;
+
+}
+.content h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    padding-left:20px ;
+    margin-top:100px ;
+    letter-spacing: 2px;
+}
+.content .cn{
+    width: 160px;
+    height: 40px;
+    background: orangered;
+    border: none;
+    margin-left:20px ;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.content .cn a{
+    text-decoration: none;
+    color: black;
+    transition: .3s ease;
+
+}
+.cn :hover{
+    background-color: white;
+
+
+}
+.content span{
+    color: orangered;
+    font-size:  40px;
+    margin-top:80px ;
+}
+.form{
+    width: 550px;
+    height: 500px;
+    background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    position: absolute;
+    top: -20px;
+    left: 650px;
+    border-radius: 10px;
+    padding: 25px;
+    column-count: 2;
+    
+}
+.header h2{
+    width: 290px;
+    height: 20px;
+    color: orangered;
+    background: white;
+    position: absolute;
+    top: -80px;
+    left: 650px;
+    border-radius: 10px;
+    padding: 25px;
+    font-weight: 500;
+    
+    
+    
+}
+.form input{
+    width: 200px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 0.5px solid orangered;
+    border-right: none;
+    border-left: none;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+} 
+.form input:focus{
+    outline: none;
+  
+}
+::placeholder{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.btn{
+    width: 240px;
+    height: 40px;
+    background: orangered;
+    border: none;
+    margin-top: 50px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 0.4s ease;
+}
+.btn:hover{
+    background: white;
+    color: orangered;
+}
+.btn a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+}
+.text{
+    margin-bottom:50px ;
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Prediction</h2>
+
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#"> HOME</a> </li>
+                    <li><a href="#">ABOUT</a> </li>
+                    <li><a href="#">SERVICE</a> </li>
+                    <li><a href="#">CONTACT</a> </li>
+                    
+    
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div class="content">
+            <h1>A Machine Learning<br><span>Predictive system</span> <br></h1>
+            <p class="par">This application predicts if your employee is likely to leave <br>any tym sooner
+                <br>fill in the details to predict<br>
+                
+            </p>
+            <button class="cn"><a  href="#">JOIN US</a></button>
+            <div class="header">
+                <h2>Enter  Below Details!!!</h2>
+            </div>
+            
+                
+            
+            <div class="form">
+                <form action="{{ url_for('predict')}}" method="POST">
+                
+                    <input type="text" name="MonthlyIncome" placeholder="MonthlyIncome" required/>
+                    <input type ="text" name ="EnvironmentSatisfaction" placeholder="EnvironmentSatisfaction" required/>
+                    <input type="text" name="PercentSalaryHike" placeholder="PercentSalaryHike" required/>
+                    <input type="text" name="Age" placeholder="Age" required/>
+                    <input type="text" name="YearsSinceLstPromotion" placeholder="YearsSinceLastPromotion" required/>
+                    <input type="text" name="JobRole"placeholder="JobRole" required/>
+                    <input type="text" name="PerformanceRating" placeholder="PerformanceRating" required/>
+                    <input type="text" name="TotalWorkingYears" placeholder="TotalWorkingYears" required/>
+                    <input type="text" name="YearsAtCompany" placeholder="YearsAtCompany" required/>
+                    <input type ="text" name ="YearsInCurrentRole" placeholder="YearsInCurrentRole" required/>
+                    <input type="text" name="JobSatisfaction" placeholder="JobSatisfaction" required/>
+                    <input type="text" name="YearsWithCurrManager" placeholder="YearsWithCurrManager" required/>
+                    <input type="text" name="WorkLifeBalance" placeholder="WorkLifeBalance" required/>
+                    <input type="text" name="JobInvolvement"placeholder="JobInvolvement" required/>
+                    <input type="text" name="JobLevel" placeholder="JobLevel" required/>
+                    
+                    <button  class=" btn" type="submit" value="Predict" >Predict</button>
+
+                </form>
+                <div class="text">
+                    <h1>{{predict_text}}</h1>
+                </div>
+                
+                
+            </div>
+        
+    
+        </div>
+
+
+    </div>
+    
+</body>
+</html>
